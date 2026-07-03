@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PositiveTagsModule } from './positive-tags/positive-tags.module';
+import { NegativeTagsModule } from './negative-tags/negative-tags.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { PositiveTagsModule } from './positive-tags/positive-tags.module';
       }),
     }),
     PositiveTagsModule,
+    NegativeTagsModule,
   ],
   controllers: [],
   providers: [],

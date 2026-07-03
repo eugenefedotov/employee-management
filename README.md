@@ -64,10 +64,36 @@ npm run start:dev
 
 The API will run on `http://localhost:3000`.
 
+You can try the endpoints below using the `backend/requests.http` file (works out of the box in WebStorm/IntelliJ - click the run arrow next to each request).
+
+## API endpoints
+
+### Positive tags (`id` is a string)
+
+| Method | Path                  | Body                          |
+| ------ | --------------------- | ------------------------------ |
+| POST   | `/positive-tags`      | `{ "name": string, "color": string }` |
+| GET    | `/positive-tags`      | -                               |
+| GET    | `/positive-tags/:id`  | -                               |
+| PATCH  | `/positive-tags/:id`  | `{ "name"?: string, "color"?: string }` |
+| DELETE | `/positive-tags/:id`  | -                               |
+
+### Negative tags (`id` is a number, auto-generated)
+
+| Method | Path                  | Body                          |
+| ------ | --------------------- | ------------------------------ |
+| POST   | `/negative-tags`      | `{ "name": string, "color": string }` |
+| GET    | `/negative-tags`      | -                               |
+| GET    | `/negative-tags/:id`  | -                               |
+| PATCH  | `/negative-tags/:id`  | `{ "name"?: string, "color"?: string }` |
+| DELETE | `/negative-tags/:id`  | -                               |
+
+`color` must be a valid hex color, for example `#1D9E75`.
+
 ## Frontend setup
 
 _Coming soon._
 
 ## Status
 
-This project is a work in progress. More sections (API endpoints, environment variables) will be added as the project grows.
+This project is a work in progress. The employee endpoints (linking employees to tags) and the frontend are next.

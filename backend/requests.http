@@ -32,3 +32,30 @@ Content-Type: application/json
   "name": "Bad color test",
   "color": "not-a-color"
 }
+
+### Create a negative tag (id will be an auto-incremented number)
+POST http://localhost:3000/negative-tags
+Content-Type: application/json
+
+{
+  "name": "Often late",
+  "color": "#E24B4A"
+}
+
+### Create a second negative tag (id should be 2)
+POST http://localhost:3000/negative-tags
+Content-Type: application/json
+
+{
+  "name": "Conflict-prone",
+  "color": "#D85A30"
+}
+
+### Get all negative tags
+GET http://localhost:3000/negative-tags
+
+### Get one negative tag by id
+GET http://localhost:3000/negative-tags/1
+
+### Try a non-numeric id (should fail with 400 thanks to ParseIntPipe)
+GET http://localhost:3000/negative-tags/abc
