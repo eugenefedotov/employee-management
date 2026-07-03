@@ -56,8 +56,11 @@ employee-management/
 cd backend
 nvm use
 npm install
+cp .env.example .env
 npm run start:dev
 ```
+
+**Important:** the `cp .env.example .env` step is required - without it, the app has no `MONGODB_URI` and will fail to start. The default value already points to the MongoDB container from the step above, so no changes are needed to get started.
 
 The API will run on `http://localhost:3000`.
 
