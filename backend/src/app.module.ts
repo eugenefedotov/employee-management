@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { PositiveTagsModule } from './positive-tags/positive-tags.module';
 
 @Module({
   imports: [
@@ -13,8 +12,9 @@ import { AppService } from './app.service';
         uri: configService.get<string>('MONGODB_URI'),
       }),
     }),
+    PositiveTagsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

@@ -12,7 +12,7 @@ export class Counter {
   @Prop({ type: String, required: true })
   _id: string;
 
-  @Prop({ default: 0 })
+  @Prop({ type: Number, default: 0 })
   seq: number;
 }
 

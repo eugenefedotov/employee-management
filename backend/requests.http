@@ -1,0 +1,34 @@
+### Create a positive tag
+POST http://localhost:3000/positive-tags
+Content-Type: application/json
+
+{
+  "name": "Punctual",
+  "color": "#1D9E75"
+}
+
+### Get all positive tags
+GET http://localhost:3000/positive-tags
+
+### Get one positive tag by id (replace :id with a real id from the create response)
+GET http://localhost:3000/positive-tags/:id
+
+### Update a positive tag (replace :id)
+PATCH http://localhost:3000/positive-tags/:id
+Content-Type: application/json
+
+{
+  "color": "#378ADD"
+}
+
+### Delete a positive tag (replace :id)
+DELETE http://localhost:3000/positive-tags/:id
+
+### Try creating an invalid tag (should fail with 400 - color is not a valid hex color)
+POST http://localhost:3000/positive-tags
+Content-Type: application/json
+
+{
+  "name": "Bad color test",
+  "color": "not-a-color"
+}
