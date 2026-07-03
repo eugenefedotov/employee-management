@@ -90,10 +90,26 @@ You can try the endpoints below using the `backend/requests.http` file (works ou
 
 `color` must be a valid hex color, for example `#1D9E75`.
 
+### Employees
+
+| Method | Path              | Body |
+| ------ | ------------------ | ---- |
+| POST   | `/employees`       | `{ "firstName": string, "lastName": string, "office": "Riga" \| "Tallinn" \| "Vilnius", "dateOfBirth": string, "phoneNumber": string, "positiveTagIds"?: string[], "negativeTagIds"?: number[] }` |
+| GET    | `/employees`       | -    |
+| GET    | `/employees/:id`   | -    |
+| PATCH  | `/employees/:id`   | same fields as create, all optional |
+| DELETE | `/employees/:id`   | -    |
+
+`dateOfBirth` must be an ISO date string, for example `1990-05-14`.
+
+## Known limitations
+
+- **No referential integrity check on tag IDs.** When creating or updating an employee, `positiveTagIds`/`negativeTagIds` are not checked against the actual tags collections. MongoDB has no foreign key constraints, and since the frontend always picks tags from a dropdown (never free text), this was a deliberate choice to keep the scope focused, not an oversight.
+
 ## Frontend setup
 
 _Coming soon._
 
 ## Status
 
-This project is a work in progress. The employee endpoints (linking employees to tags) and the frontend are next.
+This project is a work in progress. The frontend is next.
