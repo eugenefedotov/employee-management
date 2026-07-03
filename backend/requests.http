@@ -59,3 +59,46 @@ GET http://localhost:3000/negative-tags/1
 
 ### Try a non-numeric id (should fail with 400 thanks to ParseIntPipe)
 GET http://localhost:3000/negative-tags/abc
+
+### Create an employee (replace the tag ids with real ones from your GET all requests above)
+POST http://localhost:3000/employees
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "office": "Riga",
+  "dateOfBirth": "1990-05-14",
+  "phoneNumber": "+371 20000000",
+  "positiveTagIds": ["04f6ce9a-53db-473c-a829-48cfe5b33955"],
+  "negativeTagIds": [1]
+}
+
+### Get all employees
+GET http://localhost:3000/employees
+
+### Get one employee by id (replace :id with a real id from the create response)
+GET http://localhost:3000/employees/:id
+
+### Update an employee (replace :id)
+PATCH http://localhost:3000/employees/:id
+Content-Type: application/json
+
+{
+  "office": "Tallinn"
+}
+
+### Delete an employee (replace :id)
+DELETE http://localhost:3000/employees/:id
+
+### Try creating an employee with an invalid office (should fail with 400)
+POST http://localhost:3000/employees
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "office": "Madrid",
+  "dateOfBirth": "1990-05-14",
+  "phoneNumber": "+371 20000000"
+}

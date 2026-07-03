@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PositiveTagsModule } from './positive-tags/positive-tags.module';
 import { NegativeTagsModule } from './negative-tags/negative-tags.module';
+import { EmployeesModule } from './employees/employees.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { NegativeTagsModule } from './negative-tags/negative-tags.module';
     }),
     PositiveTagsModule,
     NegativeTagsModule,
+    EmployeesModule,
   ],
   controllers: [],
   providers: [],
