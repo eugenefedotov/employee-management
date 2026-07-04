@@ -4,4 +4,3 @@ export interface PositiveTag {
   color: string;
 }
 
-export type PositiveTagPayload = Omit<PositiveTag, '_id'>;

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   MAT_DIALOG_DATA,
@@ -8,10 +8,11 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { PositiveTag } from '../models/positive-tag.model';
+import { PositiveTag } from '../../models/positive-tag.model';
+import {NegativeTag} from '../../models/negative-tag.model';
 
 @Component({
-  selector: 'app-positive-tag-form-dialog',
+  selector: 'app-tag-form-dialog',
   imports: [
     ReactiveFormsModule,
     MatDialogModule,
@@ -19,16 +20,17 @@ import { PositiveTag } from '../models/positive-tag.model';
     MatInputModule,
     MatButtonModule,
   ],
-  templateUrl: './positive-tag-form-dialog.component.html',
-  styleUrl: './positive-tag-form-dialog.component.scss',
+  templateUrl: './tag-form-dialog.component.html',
+  styleUrl: './tag-form-dialog.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PositiveTagFormDialogComponent {
-  protected isEditMode: boolean;
-  protected form: FormGroup;
+export class TagFormDialogComponent {
+  isEditMode: boolean;
+  form: FormGroup;
 
   constructor(
-    private dialogRef: MatDialogRef<PositiveTagFormDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: PositiveTag | null,
+    private dialogRef: MatDialogRef<TagFormDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: PositiveTag | NegativeTag | null,
     private fb: FormBuilder,
   ) {
     this.isEditMode = !!this.data;
