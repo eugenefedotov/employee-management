@@ -47,7 +47,7 @@ docker compose down
 ```
 employee-management/
 ├── backend/    # NestJS API
-└── frontend/   # Angular app (coming soon)
+└── frontend/   # Angular app
 ```
 
 ## Backend setup
@@ -108,8 +108,11 @@ You can try the endpoints below using the `backend/requests.http` file (works ou
 
 ## Frontend setup
 
-_Coming soon._
+```bash
+cd frontend
+nvm use
+npm install
+npm start
+```
 
-## Status
-
-This project is a work in progress. The frontend is next.
+The app will run on `http://localhost:4200`. Make sure the backend (`http://localhost:3000`) is running too, since the frontend calls its API.
