@@ -9,7 +9,7 @@ import { UpdateEmployeeDto } from './dto/update-employee.dto';
 export class EmployeesService {
   constructor(
     @InjectModel(Employee.name)
-    private readonly employeeModel: Model<EmployeeDocument>,
+    private employeeModel: Model<EmployeeDocument>,
   ) {}
 
   create(dto: CreateEmployeeDto) {

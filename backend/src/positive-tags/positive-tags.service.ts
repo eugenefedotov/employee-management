@@ -9,7 +9,7 @@ import { UpdatePositiveTagDto } from './dto/update-positive-tag.dto';
 export class PositiveTagsService {
   constructor(
     @InjectModel(PositiveTag.name)
-    private readonly positiveTagModel: Model<PositiveTagDocument>,
+    private positiveTagModel: Model<PositiveTagDocument>,
   ) {}
 
   create(dto: CreatePositiveTagDto) {

@@ -15,7 +15,7 @@ import { UpdateNegativeTagDto } from './dto/update-negative-tag.dto';
 
 @Controller('negative-tags')
 export class NegativeTagsController {
-  constructor(private readonly negativeTagsService: NegativeTagsService) {}
+  constructor(private negativeTagsService: NegativeTagsService) {}
 
   @Post()
   create(@Body() dto: CreateNegativeTagDto) {

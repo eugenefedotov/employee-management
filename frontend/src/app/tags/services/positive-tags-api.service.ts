@@ -6,9 +6,9 @@ import { PositiveTag, PositiveTagPayload } from '../models/positive-tag.model';
 
 @Injectable({ providedIn: 'root' })
 export class PositiveTagsApiService {
-  private readonly apiUrl = `${environment.apiUrl}/positive-tags`;
+  private apiUrl = `${environment.apiUrl}/positive-tags`;
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getAll(): Observable<PositiveTag[]> {
     return this.http.get<PositiveTag[]>(this.apiUrl);

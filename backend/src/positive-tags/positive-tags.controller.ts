@@ -14,7 +14,7 @@ import { UpdatePositiveTagDto } from './dto/update-positive-tag.dto';
 
 @Controller('positive-tags')
 export class PositiveTagsController {
-  constructor(private readonly positiveTagsService: PositiveTagsService) {}
+  constructor(private positiveTagsService: PositiveTagsService) {}
 
   @Post()
   create(@Body() dto: CreatePositiveTagDto) {

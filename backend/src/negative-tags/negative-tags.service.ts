@@ -12,8 +12,8 @@ const NEGATIVE_TAG_COUNTER = 'negativeTagId';
 export class NegativeTagsService {
   constructor(
     @InjectModel(NegativeTag.name)
-    private readonly negativeTagModel: Model<NegativeTagDocument>,
-    private readonly countersService: CountersService,
+    private negativeTagModel: Model<NegativeTagDocument>,
+    private countersService: CountersService,
   ) {}
 
   async create(dto: CreateNegativeTagDto) {
