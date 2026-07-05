@@ -15,6 +15,10 @@ export class EmployeesApiService {
     return this.http.get<Employee[]>(this.apiUrl);
   }
 
+  getById(id: string): Observable<Employee> {
+    return this.http.get<Employee>(`${this.apiUrl}/${id}`);
+  }
+
   create(payload: EmployeePayload): Observable<Employee> {
     return this.http.post<Employee>(this.apiUrl, payload);
   }
