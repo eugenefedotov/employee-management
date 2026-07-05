@@ -81,11 +81,11 @@ GET http://localhost:3000/employees
 GET http://localhost:3000/employees/:id
 
 ### Update an employee (replace :id)
-PATCH http://localhost:3000/employees/:id
+PATCH http://localhost:3000/employees/6a47b9d60a2db97b49edbd4f
 Content-Type: application/json
 
 {
-  "office": "Tallinn"
+  "positiveTagIds": ["9e6b8744-a52d-4a65-aebf-6501c0b7dce7"]
 }
 
 ### Delete an employee (replace :id)

@@ -1,25 +1,18 @@
-import {Component, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
 import {MatButton, MatButtonModule, MatIconButton} from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {NegativeTagsApiService} from '../services/negative-tags-api.service';
 import {NegativeTag} from '../models/negative-tag.model';
 import {TagFormDialogComponent} from '../dialogs/tag-form-dialog/tag-form-dialog.component';
-import {
-  MatCell,
-  MatCellDef,
-  MatColumnDef,
-  MatHeaderCell,
-  MatHeaderRow,
-  MatHeaderRowDef,
-  MatRow, MatRowDef, MatTable, MatTableModule
-} from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-negative-tags-list',
   imports: [MatTableModule, MatButtonModule, MatIconModule, MatDialogModule],
   templateUrl: './negative-tags-list.component.html',
-  styleUrl: './negative-tags-list.component.scss'
+  styleUrl: './negative-tags-list.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NegativeTagsListComponent {
 

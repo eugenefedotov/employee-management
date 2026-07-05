@@ -6,7 +6,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { PositiveTagsApiService } from '../services/positive-tags-api.service';
 import { PositiveTag } from '../models/positive-tag.model';
 import { TagFormDialogComponent } from '../dialogs/tag-form-dialog/tag-form-dialog.component';
-import {TagPayload} from '../models/tag-payload';
+import {TagPayloadType} from '../models/tag-payload.type';
 
 @Component({
   selector: 'app-positive-tags-list',
@@ -35,7 +35,7 @@ export class PositiveTagsListComponent implements OnInit {
   openCreateDialog(): void {
     const dialogRef = this.dialog.open(TagFormDialogComponent);
 
-    dialogRef.afterClosed().subscribe((result?: TagPayload) => {
+    dialogRef.afterClosed().subscribe((result?: TagPayloadType) => {
       if (!result) {
         return;
       }
@@ -48,7 +48,7 @@ export class PositiveTagsListComponent implements OnInit {
       data: tag,
     });
 
-    dialogRef.afterClosed().subscribe((result?: TagPayload) => {
+    dialogRef.afterClosed().subscribe((result?: TagPayloadType) => {
       if (!result) {
         return;
       }

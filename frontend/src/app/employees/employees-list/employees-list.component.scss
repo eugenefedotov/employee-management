@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.tags {
+  --mdc-chip-label-text-color: #fff;
+}
+
+mat-chip-set {
+  max-width: 300px;
+}

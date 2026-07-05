@@ -16,4 +16,18 @@ export const routes: Routes = [
         (m) => m.TagsPageComponent,
       ),
   },
+  {
+    path: 'employee/:id/edit',
+    loadComponent: () =>
+      import('./employees/employee-form/employee-form.component').then(
+        (m) => m.EmployeeFormComponent,
+      ),
+  },
+  {
+    path: 'employee/new',
+    loadComponent: () =>
+      import('./employees/employee-form/employee-form.component').then(
+        (m) => m.EmployeeFormComponent,
+      ),
+  },
 ];

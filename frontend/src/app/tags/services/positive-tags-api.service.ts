@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { PositiveTag } from '../models/positive-tag.model';
-import {TagPayload} from '../models/tag-payload';
+import {TagPayloadType} from '../models/tag-payload.type';
 
 @Injectable({ providedIn: 'root' })
 export class PositiveTagsApiService {
@@ -15,11 +15,11 @@ export class PositiveTagsApiService {
     return this.http.get<PositiveTag[]>(this.apiUrl);
   }
 
-  create(payload: TagPayload): Observable<PositiveTag> {
+  create(payload: TagPayloadType): Observable<PositiveTag> {
     return this.http.post<PositiveTag>(this.apiUrl, payload);
   }
 
-  update(id: string, payload: Partial<TagPayload>): Observable<PositiveTag> {
+  update(id: string, payload: Partial<TagPayloadType>): Observable<PositiveTag> {
     return this.http.patch<PositiveTag>(`${this.apiUrl}/${id}`, payload);
   }
 
