@@ -29,7 +29,7 @@
 
         <mat-form-field appearance="outline" class="half-width">
           <mat-label>Date of birth</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" />
+          <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" readonly />
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
@@ -43,7 +43,7 @@
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Positive tags</mat-label>
         <mat-select formControlName="positiveTagIds" multiple>
-          @for (tag of positiveTags; track tag._id) {
+          @for (tag of positiveTags(); track tag._id) {
             <mat-option [value]="tag._id">{{ tag.name }}</mat-option>
           }
         </mat-select>
@@ -52,7 +52,7 @@
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Negative tags</mat-label>
         <mat-select formControlName="negativeTagIds" multiple>
-          @for (tag of negativeTags; track tag._id) {
+          @for (tag of negativeTags(); track tag._id) {
             <mat-option [value]="tag._id">{{ tag.name }}</mat-option>
           }
         </mat-select>
@@ -60,7 +60,7 @@
 
       <div class="actions">
         <button mat-button type="button" (click)="cancel()">Cancel</button>
-        <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">
+        <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid || isSaving() || form.pristine">
           Save
         </button>
       </div>

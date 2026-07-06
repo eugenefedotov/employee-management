@@ -56,12 +56,14 @@ export class EmployeesListComponent {
 
   openForm(id?: string) {
     if (!id) {
-      return this.router.navigate(['employee/new']);
+      return this.router.navigateByUrl('employee/new');
     }
-    return this.router.navigate([`employee/${id}/edit`]);
+    return this.router.navigateByUrl(`employee/${id}/edit`);
   }
 
   deleteEmployee(id: string): void {
-    this.employeeApi.delete(id).subscribe((employee) => { this.getAll() });
+    if (confirm('Are you sure you want to delete this employee?')) {
+      this.employeeApi.delete(id).subscribe((employee) => { this.getAll() });
+    }
   }
 }
