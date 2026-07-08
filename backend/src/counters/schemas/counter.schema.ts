@@ -5,10 +5,6 @@ export type CounterDocument = HydratedDocument<Counter>;
 
 @Schema()
 export class Counter {
-  /**
-   * Название последовательности, например "negativeTagId".
-   * Используется как _id документа вместо стандартного MongoDB ObjectId.
-   */
   @Prop({ type: String, required: true })
   _id: string;
 

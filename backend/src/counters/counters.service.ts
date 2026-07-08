@@ -9,11 +9,6 @@ export class CountersService {
     @InjectModel(Counter.name) private counterModel: Model<CounterDocument>,
   ) {}
 
-  /**
-   * Атомарно возвращает следующее число для указанной последовательности.
-   * $inc - это единая атомарная операция MongoDB, поэтому два запроса,
-   * пришедшие одновременно, никогда не получат одно и то же число.
-   */
   async getNextSequence(counterName: string): Promise<number> {
     const counter = await this.counterModel.findOneAndUpdate(
       { _id: counterName },
