@@ -92,8 +92,8 @@ export class EmployeeFormComponent {
   }
 
   save() {
-    this.isSaving.set(true);
     if (this.form.invalid) { return }
+    this.isSaving.set(true);
     const request$ = this.isEditMode && this.employee
       ? this.employeesApi.update(this.employee._id, this.form.getRawValue())
       : this.employeesApi.create(this.form.getRawValue())
